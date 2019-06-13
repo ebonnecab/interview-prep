@@ -3,17 +3,18 @@ You may assume that each input would have exactly one solution, and you may not 
 
 
 def twoSum(nums, target):
-    i = 0
-    j = len(nums)-1
         
-    while i < j:
-        if nums[i] + nums[j] == target:
-            return(i, j)
-        elif nums[i] + nums[j] < target:
-            i+=1
+    dict = {}
+        
+    for i, j in enumerate(nums):
+        num = target -j
+            
+        if num in dict:
+            return [dict[num], i]
         else:
-            j-=1
+            dict[j] = i
     return None
+            
 
 if __name__ == "__main__":
     test = twoSum([2,5,7,10], 12)
